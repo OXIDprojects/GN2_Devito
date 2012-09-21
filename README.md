@@ -1,14 +1,16 @@
-# Systemvoraussetzungen
+# GN2_Devito
+
+## Systemvoraussetzungen
 
 OXID eShop >4.6, PHP+GD, PHP5.
 
 
-# Installation
+## Installation
 
 um gn2_devito zu installieren muss man nur den Modulordner in /modules hochladen und im OXID-Backend das Modul aktivieren.
 
 
-# Anwendungsbeispiel
+## Anwendungsbeispiel
 
 Nach der Installation steht eine neue Smarty-Funktion zur Verfügung: [{devito}], die eine Bild-URL und verschiedene Parameter annimt. Ausgegeben wird eine Bild-URL, die automatisch das Bild mit den angegebenen Einstellungen skaliert.
 
@@ -16,17 +18,19 @@ Nach der Installation steht eine neue Smarty-Funktion zur Verfügung: [{devito}],
 
 CSS-Syntax wird für den Settings-Paramter verwendet. z.B. key=value; Settings, die häufig benutzt werden können auch in /modules/gn2_devito/presets.php ausgelagert werden. In dem Fall wird der Settings Parameter nicht angegeben:
 
+### presets.php:
 
     GN2_Devito_Tools::$presets = array(
         'details' => 'w:500;h:200;',
         'list'    => 'w:300;h:500;',
     );
 
+### OXID-Templates:
 
     [{devito src=$product->getMasterZoomPictureUrl(1) preset="list"}]
 
 
-# Parameter
+## Parameter
 
 Im Hintergrund wird die TimThumb Klasse angesprochen (http://code.google.com/p/timthumb/). Alle TimThumb-Parameter können als Settings angegeben werden.
 
